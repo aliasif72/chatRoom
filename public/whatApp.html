@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="whatApp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="appContainer">
+        
+          <!-- Friend Request Pop-up -->
+    <div class="request-popup" id="friendRequest">
+        <div class="request-container">
+         <ul id="listRequest">
+          <li>Hello<a onclick="return addUser()"><span> &#10004</span></a> </li>
+          <li>Hello<a onclick="return addUser()"><span> &#10004</span></a> </li>
+          <li>Hello<a onclick="return addUser()"><span> &#10004</span></a> </li>
+           </ul>
+         <button type="button" class="btn" id="close" onclick="closeRequest()"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+    <header>
+        <p>Chat App</p>
+        <ul id="header">
+            <li onclick="openProfile()">Welcome `${username}`</li>
+            <li onclick="openRequest()">Request</li>
+            <li><img src="coin.png">`${}`</li>
+            <li onclick="alrt()">Logout</li>      
+        </ul>
+        </header>
+  
+    <div class="container">
+    <!-- SEARCH POPUP -->
+    <div class="form-popup" id="myForm1">
+        <form class="form-container">
+         <label><b>Add User</b></label><br>
+         <ul id="listUsers">
+          <p>User1<a onclick="return addUser()"><span> &#10004</span></a> </p>
+          <p>User1<a onclick="return addUser()"><span> &#10004</span></a> </p>
+          <p>User1<a onclick="return addUser()"><span> &#10004</span></a> </p>
+         </ul>
+         <button type="button" class="iconBtn" id="close" onclick="closeForm1()"><i class="fas fa-times"></i></button>
+       </form>
+    </div>
+
+<!-- POP-UP ON ADD GROUP -->
+<div class="form-popup" id="myForm">
+<form onsubmit="addGrp(event)" class="form-container">
+  <label for="text"><b>Create Group</b></label>
+  <input type="text" placeholder="Enter Group Name" id="grpName" required>
+  <button type="submit" class="btn">Create</button>
+  <button type="button" class="iconBtn" id="closeGrp" onclick="closeForm()"><i class="fas fa-times"></i></button>
+</form>
+</div>
+
+    <div class="icon-container">
+        <input type="search" id="search">
+        <a onclick="openForm()"><i class="fas fa-user" ></i></a>
+        <a onclick="openForm1(event)"><i class="fas fa-search"></i></a>
+        <div id="tiles">
+    <button type="button" onclick="getMembers('${ obj.id}')" ondblclick="deleteGrp('${ obj.id}')" class="contacts">${obj.grpName}</button>
+    <button type="button" onclick="getMembers('${ obj.id}')" ondblclick="deleteGrp('${ obj.id}')" class="contacts">${obj.grpName}</button>
+    <button type="button" onclick="getMembers('${ obj.id}')" ondblclick="deleteGrp('${ obj.id}')" class="contacts">${obj.grpName}</button>
+    
+        </div>
+        </div>
+
+        <div class="member-container" >
+            <h4>Members</h4>
+            <div id="member">
+            <p>Uddeshya <button type="button" class="remBtn" id="close" onclick="closeForm1()"><i class="fas fa-times"></i></button></p>
+            <p>Asif <button type="button" class="remBtn" id="close" onclick="closeForm1()"><i class="fas fa-times"></i></button></p>
+            </div>
+        </div>
+
+    <div class="chat-container">
+    <div class="chat-window" id="msgs">
+      <p class="join">Vaibhav joined</p>
+      <p class="chatbox">Vaibhav: Hello!!</p>
+        </div>
+
+        <form onsubmit="saveMsg(event)">
+         <input type="text" id="msg">
+         <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <div class="profile">
+     <img src="profile.png">
+    <div class="data" id="profileData">
+          <h2>Name : Asif Ali</h2>
+          <h2>Contact : 9140489092</h2>
+          <button type="button" class="iconBtn" id="close" onclick="closeProfile()">Back to Chat</button>
+    </div>
+    </div>
+
+</div>
+</div>
+
+   <script src="whatAppJS.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+</body>
+</html>
